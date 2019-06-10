@@ -1,5 +1,6 @@
 import { Command, CommandBase, CommandParser, Event } from '@autobot/common';
 import { RichEmbed }                                  from 'discord.js';
+import { DJBotUtil }                                  from './DJBotUtil';
 
 /**
  * Initiates OAuth Login Sequence.
@@ -17,6 +18,7 @@ export class OAuthLoginCommand extends CommandBase {
         super({
 
             event: Event.MESSAGE,
+            requiredEnvVars: DJBotUtil.REQUIRED_ENV_VARS,
             name: '$login',
             group: 'music',
             description: 'Initiates OAuth Login Sequence.',

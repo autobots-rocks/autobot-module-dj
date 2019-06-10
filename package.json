@@ -1,6 +1,6 @@
 {
-    "name": "@autobot/module-test",
-    "version": "1.0.6",
+    "name": "@autobot/module-dj",
+    "version": "0.0.0",
     "description": "",
     "main": "dist/index",
     "typings": "dist/index",
@@ -14,7 +14,8 @@
     "dependencies": {
         "@autobot/common": "^1.1.33",
         "discord.js": "^11.4.2",
-        "dotenv": "^7.0.0"
+        "dotenv": "^7.0.0",
+        "spotify-web-api-node": "^4.0.0"
     },
     "devDependencies": {
         "@types/dotenv": "^6.1.0",
