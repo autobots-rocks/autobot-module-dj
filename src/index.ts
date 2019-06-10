@@ -1,1 +1,1 @@
-export * from './OAuthLoginCommand';
+export * from './SearchCommand';
