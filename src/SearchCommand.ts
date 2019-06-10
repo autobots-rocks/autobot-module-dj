@@ -43,8 +43,7 @@ export class SearchCommand extends CommandBase {
 
         BOT.events$.subscribe(async (config: any) => {
 
-
-            SpotifyClient.search(config.token, 'track', command.namedarguments.track);
+            SpotifyClient.search(config.token || config.payload.token, 'track', command.namedarguments.track);
             console.log(config);
 
         });
