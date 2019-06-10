@@ -22,11 +22,10 @@ export class SearchCommand extends CommandBase {
             description: 'Search',
             params: [
 
-                {
-
-                    name: 'id'
-
-                }
+                { name: 'album' },
+                { name: 'artist' },
+                { name: 'playlist' },
+                { name: 'track' }
 
             ]
 
@@ -39,11 +38,20 @@ export class SearchCommand extends CommandBase {
     //
     public async run(command: CommandParser) {
 
+        console.log(command);
+
         const spotify = require('spotify-web-api-node');
 
-        BOT.events$.subscribe((token: any) => {
+        BOT.events$.subscribe(async (token: any) => {
 
             console.log(token);
+
+            spotify.setAccessToken(token.payload.token);
+
+            const results = await spotify.searchTrack(`track: ${ command.namedarguments.track }`);
+
+            console.log(results);
+
 
         });
         //
