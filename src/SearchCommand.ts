@@ -1,4 +1,5 @@
 import { BOT, Command, CommandBase, CommandParser, Event, Logger } from '@autobot/common';
+import { SpotifyClient }                                           from './SpotifyClient';
 
 /**
  * Search the HelpDesk questions.
@@ -40,18 +41,11 @@ export class SearchCommand extends CommandBase {
 
         console.log(command);
 
-        const spotify = require('spotify-web-api-node');
-
         BOT.events$.subscribe(async (token: any) => {
 
             console.log(token);
 
-            spotify.setAccessToken(token.payload.token);
-
-            const results = await spotify.searchTrack(`track: ${ command.namedarguments.track }`);
-
-            console.log(results);
-
+            SpotifyClient.search(token, 'track', command.namedarguments.track);
 
         });
         //
