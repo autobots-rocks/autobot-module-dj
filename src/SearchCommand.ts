@@ -41,11 +41,11 @@ export class SearchCommand extends CommandBase {
 
         console.log(command);
 
-        BOT.events$.subscribe(async (token: any) => {
+        BOT.events$.subscribe(async (config: any) => {
 
-            console.log(token);
 
-            SpotifyClient.search(token, 'track', command.namedarguments.track);
+            SpotifyClient.search(config.token, 'track', command.namedarguments.track);
+            console.log(config);
 
         });
         //
