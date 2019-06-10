@@ -12,7 +12,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@autobot/common": "^1.1.37",
+        "@autobot/common": "^1.1.38",
         "@nestjs/common": "^6.3.1",
         "@nestjs/core": "^6.3.1",
         "discord.js": "^11.4.2",
