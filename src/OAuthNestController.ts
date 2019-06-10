@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 
 @Controller('/dj/oauth')
-export class OAuthController {
+export class OAuthNestController {
 
     public constructor() {
 
