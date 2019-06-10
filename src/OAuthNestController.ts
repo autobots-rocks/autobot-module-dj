@@ -1,13 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
 
-@Controller('/dj/oauth')
+@Controller('/oauth')
 export class OAuthNestController {
 
-    public constructor() {
-
-    }
-
-    @Get('/login')
+    @Get('/asdf')
     public sendMessage(): string {
 
         return 'aiutjed';
