@@ -1,6 +1,5 @@
 import { BOT, Command, CommandBase, CommandParser, Event, Logger } from '@autobot/common';
 import { first }                                                   from 'rxjs/operators';
-import * as SpotifyWebApi                                          from 'spotify-web-api-node';
 
 /**
  * Search the HelpDesk questions.
@@ -41,8 +40,8 @@ export class SearchCommand extends CommandBase {
     //
     public async run(command: CommandParser) {
 
-        const spotify = new SpotifyWebApi();
-
+        const spotify = require('spotify-web-api-node');
+        
         BOT.events$.pipe(first()).subscribe(token => {
 
             console.log(token);
