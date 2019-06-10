@@ -1,5 +1,4 @@
 import { BOT, Command, CommandBase, CommandParser, Event, Logger } from '@autobot/common';
-import { first }                                                   from 'rxjs/operators';
 
 /**
  * Search the HelpDesk questions.
@@ -41,8 +40,8 @@ export class SearchCommand extends CommandBase {
     public async run(command: CommandParser) {
 
         const spotify = require('spotify-web-api-node');
-        
-        BOT.events$.pipe(first()).subscribe(token => {
+
+        BOT.events$.subscribe((token: any) => {
 
             console.log(token);
 
