@@ -4,11 +4,22 @@ export class SpotifyClient {
 
     public static async search(token: string, type: string, terms: string) {
 
-        request.get(this.getHeaders(token, 'search?q=' + terms + '&type=' + type), (error: any, response: any, body: any) => {
+        return new Promise((resolve: any, reject: any) => {
 
-            console.log(error);
-            // console.log(response);
-            console.log(body);
+            request.get(this.getHeaders(token, 'search?q=' + terms + '&type=' + type), (error: any, response: any, body: any) => {
+
+                if (error) {
+
+                    console.log(error);
+                    reject(error);
+
+                } else {
+
+                    resolve(body);
+                   
+                }
+
+            });
 
         });
 
