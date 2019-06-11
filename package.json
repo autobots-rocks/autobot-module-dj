@@ -1,6 +1,6 @@
 {
     "name": "@autobot/module-dj",
-    "version": "0.0.28",
+    "version": "0.0.29",
     "description": "",
     "main": "dist/index",
     "typings": "dist/index",
