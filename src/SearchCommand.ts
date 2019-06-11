@@ -1,4 +1,5 @@
 import { BOT, Command, CommandBase, CommandParser, Event, Logger } from '@autobot/common';
+import { filter }                                                  from 'rxjs/operators';
 import { SpotifyClient }                                           from './SpotifyClient';
 
 /**
@@ -41,7 +42,7 @@ export class SearchCommand extends CommandBase {
 
         console.log(command);
 
-        BOT.events$.subscribe(async (config: any) => {
+        BOT.events$.pipe(filter(event => event.name === 'refreshToken')).subscribe(async (config: any) => {
 
             const results: any = await SpotifyClient.search(config.token || config.payload.token, 'track', command.namedarguments.track);
 
