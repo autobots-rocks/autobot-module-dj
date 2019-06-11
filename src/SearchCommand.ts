@@ -50,9 +50,9 @@ export class SearchCommand extends CommandBase {
 
             if (results.tracks.length === 0) {
 
-                command.obj.reply(process.env.DJBOT_TEXT_CHANNEL_ID).send(new RichEmbed().setTitle(process.env.DJBOT_NAME)
-                                                                                         .setColor(15158332)
-                                                                                         .setDescription(`No results found for "${ command.namedarguments.track }"`));
+                command.obj.reply(new RichEmbed().setTitle(process.env.DJBOT_NAME)
+                                                 .setColor(15158332)
+                                                 .setDescription(`No results found for "${ command.namedarguments.track }"`));
 
             } else {
 
