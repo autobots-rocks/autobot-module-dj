@@ -1,5 +1,6 @@
 import { BOT, Command, CommandBase, CommandParser, Event, Logger } from '@autobot/common';
-import { filter }                                                  from 'rxjs/operators';
+import { RichEmbed }                                               from "discord.js";
+import { filter, first }                                           from 'rxjs/operators';
 import { SpotifyClient }                                           from './SpotifyClient';
 
 /**
@@ -42,12 +43,23 @@ export class SearchCommand extends CommandBase {
 
         console.log(command);
 
-        BOT.events$.pipe(filter(event => event.name === 'refreshToken')).subscribe(async (config: any) => {
+        BOT.events$.pipe(filter(event => event.name === 'refreshToken'), first()).subscribe(async (config: any) => {
 
             const results: any = await SpotifyClient.search(config.token || config.payload.token, 'track', command.namedarguments.track);
 
-            console.log(results);
-            console.log(results.tracks);
+
+            if (results.tracks.length === 0) {
+
+                command.obj.reply(process.env.DJBOT_TEXT_CHANNEL_ID).send(new RichEmbed().setTitle(process.env.DJBOT_NAME)
+                                                                                         .setColor(15158332)
+                                                                                         .setDescription(`No results found for "${ command.namedarguments.track }"`));
+
+            } else {
+
+                console.log(results);
+                console.log(results.tracks);
+
+            }
 
         });
         //
