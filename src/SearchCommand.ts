@@ -58,6 +58,13 @@ export class SearchCommand extends CommandBase {
                 console.log(results);
                 console.log(results.tracks);
 
+                results.tracks.forEach((track: any) => {
+
+                    console.log(track.artists);
+
+
+                });
+
             }
 
         });
