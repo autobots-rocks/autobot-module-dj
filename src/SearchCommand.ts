@@ -47,8 +47,7 @@ export class SearchCommand extends CommandBase {
 
             const results: any = await SpotifyClient.search(config.token || config.payload.token, 'track', command.namedarguments.track);
 
-
-            if (results.tracks.length === 0) {
+            if (results.tracks.items.length === 0) {
 
                 command.obj.reply(new RichEmbed().setTitle(process.env.DJBOT_NAME)
                                                  .setColor(15158332)
